@@ -11,6 +11,17 @@ import Twitter
 
 typealias TweetCompletion = (TweetResult) -> Void
 
+ //MARK:- Tweet Result
+
+/**
+ 
+ Tweet result from API
+ 
+ - success: Array of tweets
+ - failure: Error (Data task Error, processing error )
+ 
+ */
+
 enum TweetResult{
     case success([Tweet])
     case failure(Error)
@@ -20,6 +31,17 @@ class TweetStore{
     
     var comp: TweetCompletion = {_ in}
     var tweets = [Tweet]()
+    
+    /**
+     Fetches tweets from Twitter framework
+     
+     - Parameters:
+     - completion: TweetCompletion.
+     
+     - Returns:
+     Void
+     */
+    
     
     func fetchTweets(searchTerm: String, completion: @escaping TweetCompletion){
         self.comp = completion
@@ -41,6 +63,17 @@ class TweetStore{
 //    @objc func updatetimer(){
 //        comp((.success(self.tweets)))
 //    }
+    
+    /**
+     Performs sentiment analysis - from WATSON API
+     
+     - Parameters:
+     - completion: SentimentAnalysisCompletion.
+     
+     - Returns:
+     Void
+     */
+    
     
     func performSentimentAnalysis(for tweets:[Tweet],completion: @escaping SentimentAnalysisCompletion){
         if tweets.count > 0{

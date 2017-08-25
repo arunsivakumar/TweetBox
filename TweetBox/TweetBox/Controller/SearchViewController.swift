@@ -10,14 +10,19 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
+//MARK:- Public API
+    
     var tweetStore:TweetStore!
     
-
+//MARK:- Outlets
+    
     @IBOutlet weak var searchTextField: UITextField!{
         didSet{
             searchTextField.delegate = self
         }
     }
+    
+//MARK:- LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +33,15 @@ class SearchViewController: UIViewController {
 //        }
     }
     
+//MARK:- UI
+    
     func configureUI(){
         searchTextField.becomeFirstResponder()
     }
 }
 
+
+//MARK:- Textfield Delegates
 
 extension SearchViewController:UITextFieldDelegate{
     
@@ -44,6 +53,9 @@ extension SearchViewController:UITextFieldDelegate{
         return true
     }
 }
+
+//MARK:- Navigation
+
 extension SearchViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {

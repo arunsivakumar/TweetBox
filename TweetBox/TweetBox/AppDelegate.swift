@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // Dependency Injection for Search View controller
+        
         let rootVC = window!.rootViewController as! UINavigationController
         let VC = rootVC.topViewController as! SearchViewController
         VC.tweetStore = TweetStore()

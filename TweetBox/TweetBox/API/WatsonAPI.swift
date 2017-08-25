@@ -11,15 +11,39 @@ import NaturalLanguageUnderstandingV1
 
 typealias SentimentAnalysisCompletion = (SentimentAnalysisResult) -> Void
 
+
+/**
+ 
+ Sentiment Analysis result from API
+ 
+ - success: Double Value
+ - failure: Error
+ 
+ */
+
 enum SentimentAnalysisResult{
     case success(Double?)
     case failure(Error)
 }
+
+
 struct WatsonAPI{
     
     static let username = "39ed3059-843d-4a17-9b18-f082efb30f18"
     static let password = "AocW17FwtINF"
     static let version = "2017-08-06"
+    
+    
+    /**
+     Performs Sentiment Analysis
+     
+     - Parameters:
+     - textToAnalyze: String
+     - completion: SentimentAnalysisCompletion.
+     
+     - Returns:
+     Void
+     */
     
     
     static func textSentimentAnalysis(for textToAnalyze: String, completion: @escaping SentimentAnalysisCompletion) {

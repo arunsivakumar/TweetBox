@@ -11,10 +11,14 @@ import UIKit
 class TweetAnalysisTableViewCell: UITableViewCell {
     
     
+    //MARK:- Outlets
+    
     @IBOutlet weak var analysisLabel: UILabel!
     @IBOutlet weak var analyzingLabel: UILabel!
     
 
+    
+    //MARK:- Variables
     var score:Double?{
         didSet{
             if let score = score{
@@ -33,6 +37,8 @@ class TweetAnalysisTableViewCell: UITableViewCell {
             }
         }
     }
+    
+    //MARK:- Lifecycle
 
     override func prepareForReuse() {
         analyzingLabel.isHidden = false

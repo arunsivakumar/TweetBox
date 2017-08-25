@@ -13,6 +13,9 @@ import NaturalLanguageUnderstandingV1
 class ViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
+    
+        //MARK:- LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +23,8 @@ class ViewController: UIViewController {
         sentimentAnalysis()
     }
     
+    
+    //MARK:- Functions
     
     func sentimentAnalysis(){
         

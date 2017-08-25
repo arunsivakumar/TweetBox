@@ -12,17 +12,24 @@ import Kingfisher
 
 class TweetTableViewCell:UITableViewCell{
     
+    
+      //MARK:- Outlets
+    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var createdLabel: UILabel!
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var tweetLabel: UILabel!
     
     
+    //MARK:- Static Variables
+    
     private static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-ss HH:mm:ss"
         return formatter
     }()
+    
+    //MARK:- Variables
     
     var tweet:Tweet?{
         didSet{
@@ -47,6 +54,8 @@ class TweetTableViewCell:UITableViewCell{
             
         }
     }
+    
+    //MARK:- Lifecycle
     
     override func prepareForReuse() {
         profileImageView.image = nil

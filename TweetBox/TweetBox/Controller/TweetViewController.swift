@@ -10,6 +10,7 @@ import UIKit
 
 class TweetViewController: UIViewController {
     
+   //MARK:- Public API
     var tweetStore:TweetStore!
     var searchTerm:String!{
         didSet{
@@ -17,6 +18,7 @@ class TweetViewController: UIViewController {
         }
     }
     
+    //MARK:- Variables
     
     var tweetsCompletion: TweetCompletion = {_ in }
     var sentimentAnalysisCompletion: SentimentAnalysisCompletion = {_ in }
@@ -28,9 +30,12 @@ class TweetViewController: UIViewController {
         print("left memory")
     }
     
+    
+    //MARK:- Outlets
+    
     @IBOutlet weak var tableView: UITableView!
     
-    
+    //MARK:- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +45,8 @@ class TweetViewController: UIViewController {
         loadData()
 
     }
+    
+    //MARK:- UI
     
     func setUpUI(){
         self.navigationItem.title = searchTerm
@@ -85,6 +92,8 @@ class TweetViewController: UIViewController {
             }
         }
     }
+    
+    //MARK:- Functions
     
     func loadData(){
         tweetStore.fetchTweets(searchTerm: searchTerm, completion: tweetsCompletion)

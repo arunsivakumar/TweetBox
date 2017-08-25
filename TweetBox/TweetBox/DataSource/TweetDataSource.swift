@@ -12,8 +12,11 @@ import Twitter
 
 class TweetDataSource:NSObject,UITableViewDataSource{
     
-  
+   //MARK:- Public API
+    
     var tweets = [Tweet]()
+    
+     //MARK:- Datasource Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return  tweets.count

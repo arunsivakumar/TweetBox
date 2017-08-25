@@ -20,6 +20,8 @@ enum TwitterMethod:String{
 struct TwitterAPI{
     
     
+    //MARK:- Static Variables
+    
     private static let baseURLString =  "https://api.twitter.com/1.1/search/tweets.json?q=%40twitterapi"
     private static let apiKey = "fd3c0d32acfaca425895462a4194ee13"
     
@@ -28,6 +30,17 @@ struct TwitterAPI{
         formatter.dateFormat = "yyyy-MM-ss HH:mm:ss"
         return formatter
     }()
+    
+    
+    /**
+     Constructs Search Tweets URL.
+     
+     - Parameters:
+     - method:TwitterMethod.
+     - parameters: Query items.
+     - Returns: URL constructed from method,base parameters and additional parameters.
+     */
+    
     
     private static func constructURL(method:TwitterMethod, parameters:[String:String]?) -> URL{
         
